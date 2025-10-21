@@ -12,7 +12,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    // Add a stable class on the html element to avoid hydration mismatches
+    // when browser extensions or client scripts mutate the <html> before React hydrates.
+    <html lang="en" className="hydrated">
       <body className="antialiased bg-white text-gray-900">
         {children}
       </body>

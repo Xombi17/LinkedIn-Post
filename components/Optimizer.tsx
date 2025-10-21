@@ -117,14 +117,14 @@ IMPORTANT:
   return (
     <div className="space-y-5">
       <div>
-        <label className="block text-sm font-semibold text-gray-800 mb-2">
+        <label className="block text-sm font-semibold text-gray-200 mb-2">
           Your Post *
         </label>
         <textarea
           value={postText}
           onChange={(e) => setPostText(e.target.value)}
           placeholder="Paste your LinkedIn post here for analysis and get actionable feedback..."
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none text-base"
+          className="w-full px-4 py-3 bg-white/10 border-2 border-white/20 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 resize-none text-base text-white placeholder-gray-400"
           rows={8}
         />
       </div>
@@ -147,11 +147,11 @@ IMPORTANT:
 
       {analysis && (
         <div className="mt-8 space-y-5 animate-fade-in">
-          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-xl p-8 shadow-lg">
+          <div className="bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border-2 border-emerald-400/30 rounded-xl p-8 shadow-lg">
             <div className="text-center">
               <div className="inline-block relative">
                 <svg className="w-32 h-32" viewBox="0 0 120 120">
-                  <circle cx="60" cy="60" r="54" fill="none" stroke="#e5e7eb" strokeWidth="8"/>
+                  <circle cx="60" cy="60" r="54" fill="none" stroke="#374151" strokeWidth="8"/>
                   <circle
                     cx="60"
                     cy="60"
@@ -171,32 +171,32 @@ IMPORTANT:
                   </defs>
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
                     {analysis.score}
                   </div>
-                  <div className="text-xs text-gray-500 font-medium">/ 100</div>
+                  <div className="text-xs text-gray-400 font-medium">/ 100</div>
                 </div>
               </div>
               <div className="mt-4">
-                <div className="text-lg font-bold text-gray-800">Engagement Score</div>
-                <div className="text-sm text-gray-600 mt-1">
+                <div className="text-lg font-bold text-white">Engagement Score</div>
+                <div className="text-sm text-gray-300 mt-1">
                   {analysis.score >= 80 ? '🚀 Excellent!' : analysis.score >= 60 ? '👍 Good job!' : analysis.score >= 40 ? '💡 Room for improvement' : '✏️ Needs work'}
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white border-2 border-gray-200 rounded-xl p-6 shadow-lg">
-            <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+          <div className="bg-white/5 border-2 border-white/10 rounded-xl p-6 shadow-lg">
+            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
               💡 Improvement Tips
             </h3>
             <ul className="space-y-4">
               {analysis.tips.map((tip, idx) => (
-                <li key={idx} className="flex items-start gap-3 p-4 bg-gradient-to-r from-gray-50 to-blue-50 rounded-lg border border-gray-200">
+                <li key={idx} className="flex items-start gap-3 p-4 bg-white/5 rounded-lg border border-white/10">
                   <span className="flex-shrink-0 w-7 h-7 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold rounded-full flex items-center justify-center text-sm">
                     {idx + 1}
                   </span>
-                  <span className="text-gray-800 leading-relaxed text-base">{tip}</span>
+                  <span className="text-gray-200 leading-relaxed text-base">{tip}</span>
                 </li>
               ))}
             </ul>
@@ -206,37 +206,37 @@ IMPORTANT:
           {analysis.optimizedPosts.length > 0 && (
             <div className="space-y-4">
               <div className="flex items-center gap-2 mb-2">
-                <h3 className="text-xl font-bold text-gray-800">✨ Optimized Versions</h3>
-                <span className="text-sm text-gray-500 bg-emerald-100 px-3 py-1 rounded-full font-medium">
+                <h3 className="text-xl font-bold text-white">✨ Optimized Versions</h3>
+                <span className="text-sm text-gray-300 bg-emerald-500/20 px-3 py-1 rounded-full font-medium">
                   {analysis.optimizedPosts.length} versions
                 </span>
               </div>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-gray-300 mb-4">
                 Here are {analysis.optimizedPosts.length} improved versions implementing the suggestions above. Choose your favorite!
               </p>
               
               {analysis.optimizedPosts.map((post, idx) => (
-                <div key={idx} className="bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-all">
+                <div key={idx} className="bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border-2 border-emerald-400/30 rounded-xl p-6 shadow-md hover:shadow-lg transition-all">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
                       <span className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold rounded-full flex items-center justify-center">
                         {idx + 1}
                       </span>
-                      <h4 className="font-bold text-gray-800">Version {idx + 1}</h4>
+                      <h4 className="font-bold text-white">Version {idx + 1}</h4>
                     </div>
-                    <span className="text-xs text-gray-500 bg-white px-3 py-1 rounded-full">
+                    <span className="text-xs text-gray-300 bg-white/10 px-3 py-1 rounded-full">
                       {post.split(' ').length} words
                     </span>
                   </div>
                   
-                  <div className="bg-white rounded-lg p-5 border border-emerald-200 mb-4">
-                    <p className="whitespace-pre-wrap text-gray-900 leading-relaxed text-base">{post}</p>
+                  <div className="bg-white/10 backdrop-blur-md rounded-lg p-5 border border-white/20 mb-4">
+                    <p className="whitespace-pre-wrap text-gray-100 leading-relaxed text-base">{post}</p>
                   </div>
                   
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       onClick={() => copyToClipboard(post)}
-                      className="bg-white hover:bg-gray-50 text-gray-800 font-semibold py-2.5 px-4 rounded-lg transition-all border-2 border-gray-300 hover:border-emerald-400 shadow-sm hover:shadow-md"
+                      className="bg-white/10 hover:bg-white/20 text-white font-semibold py-2.5 px-4 rounded-lg transition-all border-2 border-white/20 hover:border-emerald-400/50 shadow-sm hover:shadow-md"
                     >
                       📋 Copy
                     </button>

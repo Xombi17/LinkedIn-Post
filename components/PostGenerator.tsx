@@ -81,27 +81,27 @@ Write the complete LinkedIn post now:`;
   return (
     <div className="space-y-5">
       <div>
-        <label className="block text-sm font-semibold text-gray-800 mb-2">
+        <label className="block text-sm font-semibold text-gray-200 mb-2">
           What&apos;s your post about? *
         </label>
         <textarea
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
           placeholder="E.g., My experience attending TechConf 2024, lessons learned from a failed project, celebrating a team milestone..."
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none text-base"
+          className="w-full px-4 py-3 bg-white/10 border-2 border-white/20 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 resize-none text-base text-white placeholder-gray-400"
           rows={4}
         />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-semibold text-gray-800 mb-2">
+          <label className="block text-sm font-semibold text-gray-200 mb-2">
             Tone
           </label>
           <select
             value={tone}
             onChange={(e) => setTone(e.target.value)}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+            className="w-full px-4 py-3 bg-white/10 border-2 border-white/20 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 text-base text-white"
           >
             <option>Professional</option>
             <option>Storytelling</option>
@@ -113,13 +113,13 @@ Write the complete LinkedIn post now:`;
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-800 mb-2">
+          <label className="block text-sm font-semibold text-gray-200 mb-2">
             Length
           </label>
           <select
             value={length}
             onChange={(e) => setLength(e.target.value)}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+            className="w-full px-4 py-3 bg-white/10 border-2 border-white/20 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 text-base text-white"
           >
             <option>Short</option>
             <option>Medium</option>
@@ -129,20 +129,20 @@ Write the complete LinkedIn post now:`;
       </div>
 
       <div>
-        <label className="block text-sm font-semibold text-gray-800 mb-2">
+        <label className="block text-sm font-semibold text-gray-200 mb-2">
           Additional Context (Optional)
         </label>
         <textarea
           value={context}
           onChange={(e) => setContext(e.target.value)}
           placeholder="E.g., I'm a software engineer with 5 years experience, this happened at my startup, I learned this the hard way..."
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none text-base"
+          className="w-full px-4 py-3 bg-white/10 border-2 border-white/20 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 resize-none text-base text-white placeholder-gray-400"
           rows={3}
         />
       </div>
 
       <div>
-        <label className="block text-sm font-semibold text-gray-800 mb-2">
+        <label className="block text-sm font-semibold text-gray-200 mb-2">
           Target Audience (Optional)
         </label>
         <input
@@ -150,12 +150,12 @@ Write the complete LinkedIn post now:`;
           value={targetAudience}
           onChange={(e) => setTargetAudience(e.target.value)}
           placeholder="E.g., Software developers, Marketing professionals, Startup founders..."
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+          className="w-full px-4 py-3 bg-white/10 border-2 border-white/20 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 text-base text-white placeholder-gray-400"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-semibold text-gray-800 mb-2">
+        <label className="block text-sm font-semibold text-gray-200 mb-2">
           Call to Action (Optional)
         </label>
         <input
@@ -163,7 +163,7 @@ Write the complete LinkedIn post now:`;
           value={callToAction}
           onChange={(e) => setCallToAction(e.target.value)}
           placeholder="E.g., Share your experience, Comment below, Check out my article..."
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+          className="w-full px-4 py-3 bg-white/10 border-2 border-white/20 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 text-base text-white placeholder-gray-400"
         />
       </div>
 
@@ -185,33 +185,33 @@ Write the complete LinkedIn post now:`;
 
       {generated && (
         <div className="mt-8 space-y-4 animate-fade-in">
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 shadow-lg">
+          <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 border-2 border-blue-400/30 rounded-xl p-6 shadow-lg">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-gray-800">📝 Your Generated Post</h3>
-              <span className="text-xs text-gray-500 bg-white px-3 py-1 rounded-full">
+              <h3 className="text-lg font-bold text-white">📝 Your Generated Post</h3>
+              <span className="text-xs text-gray-300 bg-white/10 px-3 py-1 rounded-full">
                 {generated.split(' ').length} words
               </span>
             </div>
-            <div className="bg-white rounded-lg p-5 border border-gray-200">
-              <p className="whitespace-pre-wrap text-gray-900 leading-relaxed text-base">{generated}</p>
+            <div className="bg-white/10 backdrop-blur-md rounded-lg p-5 border border-white/20">
+              <p className="whitespace-pre-wrap text-gray-100 leading-relaxed text-base">{generated}</p>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-3">
             <button
               onClick={copyToClipboard}
-              className="bg-white hover:bg-gray-50 text-gray-800 font-semibold py-3 px-4 rounded-lg transition-all border-2 border-gray-300 hover:border-gray-400 shadow-sm hover:shadow-md"
+              className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-4 rounded-lg transition-all border-2 border-white/20 hover:border-white/30 shadow-sm hover:shadow-md"
             >
               📋 Copy
             </button>
             <button
               onClick={generatePost}
-              className="bg-white hover:bg-gray-50 text-gray-800 font-semibold py-3 px-4 rounded-lg transition-all border-2 border-gray-300 hover:border-gray-400 shadow-sm hover:shadow-md"
+              className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-4 rounded-lg transition-all border-2 border-white/20 hover:border-white/30 shadow-sm hover:shadow-md"
             >
               🔄 Regenerate
             </button>
             <button
               onClick={savePost}
-              className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-all shadow-md hover:shadow-lg"
+              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-4 rounded-lg transition-all shadow-md hover:shadow-lg"
             >
               💾 Save
             </button>

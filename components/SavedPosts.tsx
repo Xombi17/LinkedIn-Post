@@ -37,8 +37,8 @@ export default function SavedPosts() {
     return (
       <div className="text-center py-16">
         <div className="text-6xl mb-4">📁</div>
-        <h3 className="text-xl font-semibold text-gray-700 mb-2">No saved posts yet</h3>
-        <p className="text-gray-500">Generate some posts and save your favorites to see them here</p>
+        <h3 className="text-xl font-semibold text-gray-200 mb-2">No saved posts yet</h3>
+        <p className="text-gray-400">Generate some posts and save your favorites to see them here</p>
       </div>
     );
   }
@@ -46,9 +46,9 @@ export default function SavedPosts() {
   return (
     <div className="space-y-4">
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2">
+        <h3 className="text-lg font-bold text-white flex items-center gap-2">
           💾 Saved Posts
-          <span className="text-sm font-normal text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+          <span className="text-sm font-normal text-gray-300 bg-white/10 px-3 py-1 rounded-full">
             {posts.length} {posts.length === 1 ? 'post' : 'posts'}
           </span>
         </h3>
@@ -56,13 +56,13 @@ export default function SavedPosts() {
       {posts.map((post) => (
         <div
           key={post.id}
-          className="bg-gradient-to-br from-white to-gray-50 border-2 border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-blue-300 transition-all"
+          className="bg-white/5 border-2 border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-white/20 transition-all"
         >
-          <p className="text-gray-800 mb-4 whitespace-pre-wrap line-clamp-4 leading-relaxed">
+          <p className="text-gray-200 mb-4 whitespace-pre-wrap line-clamp-4 leading-relaxed">
             {post.text}
           </p>
-          <div className="flex items-center justify-between pt-3 border-t border-gray-200">
-            <span className="text-xs text-gray-500 font-medium">
+          <div className="flex items-center justify-between pt-3 border-t border-white/10">
+            <span className="text-xs text-gray-400 font-medium">
               📅 {new Date(post.timestamp).toLocaleDateString('en-US', { 
                 month: 'short', 
                 day: 'numeric', 
@@ -74,13 +74,13 @@ export default function SavedPosts() {
             <div className="flex gap-2">
               <button
                 onClick={() => copyToClipboard(post.text)}
-                className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-all shadow-sm hover:shadow-md"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition-all shadow-sm hover:shadow-md"
               >
                 📋 Copy
               </button>
               <button
                 onClick={() => deletePost(post.id)}
-                className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition-all shadow-sm hover:shadow-md"
+                className="bg-white/10 hover:bg-red-500/20 border border-red-400/30 text-red-300 hover:text-red-200 font-semibold py-2 px-4 rounded-lg transition-all shadow-sm hover:shadow-md"
               >
                 🗑️ Delete
               </button>
