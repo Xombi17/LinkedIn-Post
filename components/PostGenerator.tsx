@@ -1,6 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import CharacterCounter from './CharacterCounter';
+import HashtagGenerator from './HashtagGenerator';
+import PostPreview from './PostPreview';
 
 interface PostGeneratorProps {
   onSave: (post: string) => void;
@@ -15,6 +18,8 @@ export default function PostGenerator({ onSave }: PostGeneratorProps) {
   const [length, setLength] = useState('Medium');
   const [generated, setGenerated] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showHashtags, setShowHashtags] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
 
   const generatePost = async () => {
     if (!topic.trim()) return;
@@ -188,15 +193,34 @@ Write the complete LinkedIn post now:`;
           <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 border-2 border-blue-400/30 rounded-xl p-6 shadow-lg">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-bold text-white">📝 Your Generated Post</h3>
-              <span className="text-xs text-gray-300 bg-white/10 px-3 py-1 rounded-full">
-                {generated.split(' ').length} words
-              </span>
+              <CharacterCounter text={generated} />
             </div>
             <div className="bg-white/10 backdrop-blur-md rounded-lg p-5 border border-white/20">
               <p className="whitespace-pre-wrap text-gray-100 leading-relaxed text-base">{generated}</p>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-3">
+
+          {/* Hashtag Generator Section */}
+          <div className="bg-white/5 border-2 border-white/10 rounded-xl p-6">
+            <button
+              onClick={() => setShowHashtags(!showHashtags)}
+              className="flex items-center justify-between w-full text-left mb-4"
+            >
+              <h4 className="text-lg font-semibold text-white">🏷️ Add Hashtags</h4>
+              <span className="text-gray-400">{showHashtags ? '▲' : '▼'}</span>
+            </button>
+            {showHashtags && (
+              <HashtagGenerator postContent={generated} />
+            )}
+          </div>
+
+          <div className="grid grid-cols-4 gap-3">
+            <button
+              onClick={() => setShowPreview(true)}
+              className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-4 rounded-lg transition-all border-2 border-white/20 hover:border-white/30 shadow-sm hover:shadow-md"
+            >
+              👁️ Preview
+            </button>
             <button
               onClick={copyToClipboard}
               className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-4 rounded-lg transition-all border-2 border-white/20 hover:border-white/30 shadow-sm hover:shadow-md"
@@ -207,7 +231,7 @@ Write the complete LinkedIn post now:`;
               onClick={generatePost}
               className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-4 rounded-lg transition-all border-2 border-white/20 hover:border-white/30 shadow-sm hover:shadow-md"
             >
-              🔄 Regenerate
+              🔄 Regen
             </button>
             <button
               onClick={savePost}
@@ -217,6 +241,11 @@ Write the complete LinkedIn post now:`;
             </button>
           </div>
         </div>
+      )}
+
+      {/* Preview Modal */}
+      {showPreview && generated && (
+        <PostPreview postContent={generated} onClose={() => setShowPreview(false)} />
       )}
     </div>
   );

@@ -6,9 +6,10 @@ import RewriteSection from '@/components/RewriteSection';
 import Optimizer from '@/components/Optimizer';
 import Enhance from '@/components/Enhance';
 import SavedPosts from '@/components/SavedPosts';
+import Templates from '@/components/Templates';
 import LandingPage from '@/components/LandingPage';
 
-type Tab = 'generate' | 'rewrite' | 'enhance' | 'optimize' | 'saved';
+type Tab = 'generate' | 'rewrite' | 'enhance' | 'optimize' | 'templates' | 'saved';
 
 export default function Home() {
   const [showApp, setShowApp] = useState(false);
@@ -31,6 +32,7 @@ export default function Home() {
 
   const tabs = [
     { id: 'generate' as Tab, label: '✍️ Generate', component: <PostGenerator onSave={savePost} /> },
+    { id: 'templates' as Tab, label: '📄 Templates', component: <Templates /> },
     { id: 'rewrite' as Tab, label: '🔄 Rewrite', component: <RewriteSection /> },
     { id: 'enhance' as Tab, label: '✨ Enhance', component: <Enhance /> },
     { id: 'optimize' as Tab, label: '📊 Optimize', component: <Optimizer /> },

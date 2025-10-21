@@ -30,8 +30,25 @@ The Optimizer doesn't just analyze your posts anymore — it creates **3 fully o
 - Choose from 6 tone options: Professional, Storytelling, Technical, Personal, Inspirational, Educational
 - Control post length: Short, Medium, or Long
 - Add context, target audience, and call-to-action for personalized posts
-- Beautiful, responsive UI with real-time word count
+- **NEW: Character counter** with LinkedIn limit warnings (3000 chars)
+- **NEW: Collapsible hashtag generator** - AI-powered hashtag suggestions
+- **NEW: Post preview** - See how your post looks on LinkedIn before copying
+- Beautiful, responsive UI with real-time feedback
 - Copy, regenerate, or save generated posts
+
+### 📄 Templates (NEW!)
+- 8 pre-built templates for common LinkedIn scenarios:
+  - New Job Announcement
+  - Product Launch
+  - Celebrate Achievement
+  - Thought Leadership
+  - Event Recap
+  - Ask for Advice
+  - Lessons Learned
+  - Team Appreciation
+- Fill-in-the-blank interface for quick customization
+- Category filtering (Career, Business, Personal, Insights, Events, Community, Growth)
+- One-click generation from templates
 
 ### 🔄 Rewrite Mode
 - Transform existing LinkedIn posts for new contexts
@@ -59,10 +76,43 @@ The Optimizer doesn't just analyze your posts anymore — it creates **3 fully o
 - Copy or save any optimized version directly
 - Beautiful gradient UI with animated results
 
-### 📁 My Posts
+### 📁 My Posts (Enhanced!)
 - Save posts to browser localStorage
-- Copy or delete saved posts
+- **NEW: Search functionality** - Find posts by keywords
+- **NEW: Sort options** - Newest, Oldest, Shortest, Longest
+- **NEW: Bulk selection** - Select multiple posts with checkboxes
+- **NEW: Bulk delete** - Delete multiple posts at once
+- **NEW: Export all posts** - Download as .txt file
+- **NEW: Copy all posts** - Copy entire collection to clipboard
+- Word count display for each post
 - Persistent storage across sessions
+
+### 🏷️ Hashtag Generator (NEW!)
+- AI-powered hashtag suggestions based on post content
+- Generates 15 relevant, professional hashtags
+- Mix of popular and niche tags
+- Click to select/deselect hashtags
+- Copy selected or copy all hashtags
+- Regenerate for different suggestions
+- Integrated into Post Generator tab
+
+### 👁️ Post Preview (NEW!)
+- LinkedIn-style preview modal
+- See exactly how your post will look
+- Includes engagement bar simulation
+- Character count display
+- Copy directly from preview
+- Mobile and desktop views
+
+### ✅ Character Counter (NEW!)
+- Real-time character counting
+- LinkedIn 3000 character limit tracking
+- Color-coded warnings:
+  - Gray: < 50% used
+  - Blue: 50-75% used
+  - Yellow: 75-90% used
+  - Red: 90-100% used
+- Over-limit alerts
 
 ## Setup
 
